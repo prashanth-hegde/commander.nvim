@@ -100,8 +100,9 @@ local function get_command()
   end
 
   local rel_lines = extract_relevant_lines()
-  local url = create_usable_cmd(rel_lines)
-  return url
+  local usable_cmd = create_usable_cmd(rel_lines)
+  local hydrated_cmd = hydrate_config(usable_cmd)
+  return hydrated_cmd
 end
 
 return {
